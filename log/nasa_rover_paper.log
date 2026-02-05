@@ -1,0 +1,2 @@
+model,solver,domain_type,selection_type,search_time,depth,runs,deadline,exploration_constant,object_amount,garbage_amount,k_random_actions,success,stmean,ststd
+nasa_rover,mcts,regular,rootInterval,1,40,100,35,10,1,0,10,75,28.933333333333334,0.48036522641709894

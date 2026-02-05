@@ -124,25 +124,30 @@ def plan(mdp: "up.engines.MDP", split_mdp: "up.engines.MDP", steps: int, search_
     rtdp = RTDP(mdp, split_mdp, root_state, search_depth)
 
     while root_state.current_time < mdp.deadline():
-        print(f"started step {step}")
+        if not up.args.quiet:
+            print(f"started step {step}")
         action = rtdp.search(search_time)
 
-        print(f"Current state is {root_state}")
-        print(f"The chosen action is {action.name}")
+        if not up.args.quiet:
+            print(f"Current state is {root_state}")
+            print(f"The chosen action is {action.name}")
 
         terminal, root_state, reward = mdp.step(root_state, action)
 
         rtdp.update_root(root_state)
-        print(f'current time = {root_state.current_time}')
+        if not up.args.quiet:
+            print(f'current time = {root_state.current_time}')
 
         history.append(action)
 
         if terminal and root_state.current_time <= mdp.deadline():
-            print(f"Current state is {root_state}")
+            if not up.args.quiet:
+                print(f"Current state is {root_state}")
             return 1, root_state.current_time
 
         step += 1
 
-    print("a valid plan is not found")
+    if not up.args.quiet:
+        print("a valid plan is not found")
     return 0, -math.inf
 

@@ -1,0 +1,6 @@
+model,solver,domain_type,selection_type,search_time,depth,runs,deadline,exploration_constant,object_amount,garbage_amount,k_random_actions,success,stmean,ststd
+nasa_rover,mcts,regular,avg,1,40,20,35,10,1,0,10,18,27.166666666666668,0.9540077143054183
+nasa_rover,mcts,regular,max,1,40,20,35,10,1,0,10,19,24.894736842105264,1.4119265111048978
+nasa_rover,mcts,regular,rootInterval,1,40,20,35,10,1,0,10,19,30.526315789473685,0.922012866208485
+nasa_rover,rtdp,combination,avg,1,40,,35,10,1,0,10,,,
+nasa_rover,mcts,combination,max,1,40,,35,10,1,0,10,,,

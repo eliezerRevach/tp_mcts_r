@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.controls {
+  margin-top: 24px;
+  padding: 16px;
+  background: #111827;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+  background: #0f172a;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.panel {
+  margin-top: 24px;
+  padding: 18px;
+  background: #111827;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map {
+  background: #0b1220;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  padding: 10px;
+}
+
+#mapSvg {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.value {
+  font-size: 14px;
+}
+
+.mono {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 13px;
+}
+
+.state {
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 280px;
+  overflow: auto;
+  padding: 12px;
+  background: #0b1220;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+}
+
+.status {
+  color: #94a3b8;
+  font-size: 13px;
+}

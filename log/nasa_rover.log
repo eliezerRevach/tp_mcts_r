@@ -1,0 +1,10 @@
+model,solver,domain_type,selection_type,search_time,depth,runs,deadline,exploration_constant,object_amount,garbage_amount,k_random_actions,success,stmean,ststd
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+nasa_rover,mcts,regular,avg,1,40,1,35,10,1,0,10,1,21,-1
+nasa_rover,mcts,regular,avg,1,40,1,35,10,1,0,10,1,31,-1

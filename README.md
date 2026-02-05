@@ -30,3 +30,13 @@ This command computes the TP-MCTS algorithm on the Nasa Rover(1) domain with a d
 
 For more usage parameters see "[usage parameters](doc/usage_parameters.txt)".
 
+## Minimal UI (Step Viewer)You can record step-by-step output and view it in a minimal UI.
+
+1) Record steps to JSONL:```bash
+python3 tools/record_steps.py --output ui/steps.jsonl -- \
+  python3 unified_planning/run_domain.py --domain nasa_rover --deadline 35 --runs 1
+```2) Open the UI:- Option A (recommended): run a local server in `ui` and open the browser:
+  - `cd ui`
+  - `python3 -m http.server 8000`
+  - open `http://localhost:8000`
+- Option B: open `ui/index.html` directly and use the file picker to load `steps.jsonl`.

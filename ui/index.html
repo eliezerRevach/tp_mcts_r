@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP-MCTS Step Viewer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>TP-MCTS Step Viewer</h1>
+        <p>Minimal visual playback of planner steps.</p>
+      </header>
+
+      <section class="controls">
+        <label class="file">
+          Load steps file:
+          <input id="stepsFile" type="file" accept=".json,.jsonl,.txt" />
+        </label>
+        <div class="buttons">
+          <button id="prevBtn">Prev</button>
+          <button id="playBtn">Play</button>
+          <button id="pauseBtn" disabled>Pause</button>
+          <button id="nextBtn">Next</button>
+          <button id="liveBtn">Live</button>
+        </div>
+        <div class="status">
+          <span id="statusText">No data loaded</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="label">Map</div>
+        <div class="map">
+          <svg id="mapSvg" viewBox="0 0 600 260" aria-label="Rover map"></svg>
+        </div>
+
+        <div class="row">
+          <div>
+            <div class="label">Step</div>
+            <div id="stepValue" class="value">-</div>
+          </div>
+          <div>
+            <div class="label">Time</div>
+            <div id="timeValue" class="value">-</div>
+          </div>
+        </div>
+
+        <div class="label">Action</div>
+        <div id="actionValue" class="value mono">-</div>
+
+        <div class="label">State</div>
+        <pre id="stateValue" class="state mono">-</pre>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

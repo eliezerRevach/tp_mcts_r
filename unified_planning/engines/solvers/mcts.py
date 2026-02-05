@@ -509,17 +509,20 @@ def plan(mdp: "up.engines.MDP", steps: int, search_time: int, search_depth: int,
     root_node = None
 
     while stn.get_current_end_time() <= mdp.deadline():
-        print(f"started step {step}")
+        if not up.args.quiet:
+            print(f"started step {step}")
         mcts = C_MCTS(mdp, root_node, root_state, search_depth, exploration_constant, stn, selection_type, k,
                       previous_action_node)
         action = mcts.search(search_time, selection_type)
 
         if action == -1:
-            print("A valid plan is not found")
+            if not up.args.quiet:
+                print("A valid plan is not found")
             return 0, -math.inf
 
-        print(f"Current state is {root_state}")
-        print(f"The chosen action is {action.name}")
+        if not up.args.quiet:
+            print(f"Current state is {root_state}")
+            print(f"The chosen action is {action.name}")
 
         terminal, root_state, reward = mcts.mdp.step(root_state, action)
 
@@ -534,17 +537,20 @@ def plan(mdp: "up.engines.MDP", steps: int, search_time: int, search_depth: int,
 
         assert stn.is_consistent()
 
-        print(f"The time of the plan so far: {stn.get_current_end_time()}")
+        if not up.args.quiet:
+            print(f"The time of the plan so far: {stn.get_current_end_time()}")
         history.append(previous_action_node)
 
         if terminal:
-            print(f"Current state is {root_state}")
-            print(f"The amount of time the plan took: {stn.get_current_end_time()}")
+            if not up.args.quiet:
+                print(f"Current state is {root_state}")
+                print(f"The amount of time the plan took: {stn.get_current_end_time()}")
             return 1, stn.get_current_end_time()
 
         step += 1
 
-    print("A valid plan is not found")
+    if not up.args.quiet:
+        print("A valid plan is not found")
     return 0, -math.inf
 
 
@@ -557,22 +563,26 @@ def combination_plan(mdp: "up.engines.MDP", split_mdp: "up.engines.MDP", steps: 
     root_node = None
 
     while root_state.current_time < mdp.deadline():
-        print(f"started step {step}")
+        if not up.args.quiet:
+            print(f"started step {step}")
 
         mcts = MCTS(mdp, split_mdp, root_node, root_state, search_depth, exploration_constant, selection_type, k)
         action = mcts.search(search_time, selection_type)
 
-        print(f"Current state is {root_state}")
-        print(f"The chosen action is {action.name}")
+        if not up.args.quiet:
+            print(f"Current state is {root_state}")
+            print(f"The chosen action is {action.name}")
 
         terminal, root_state, reward = mcts.mdp.step(root_state, action)
 
         history.append(action)
-        print(f'current time = {root_state.current_time}')
+        if not up.args.quiet:
+            print(f'current time = {root_state.current_time}')
 
         if terminal and root_state.current_time <= mdp.deadline():
-            print(f"Current state is {root_state}")
-            print(f"The amount of time the plan took: {root_state.current_time}")
+            if not up.args.quiet:
+                print(f"Current state is {root_state}")
+                print(f"The amount of time the plan took: {root_state.current_time}")
             return 1, root_state.current_time
 
         step += 1
